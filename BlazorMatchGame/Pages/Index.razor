@@ -47,4 +47,12 @@
     {
         SetUpGame();
     }
+
+    private void SetUpGame()
+    {
+        Random random = new Random();
+        shuffledAnimals = animalEmoji
+            .OrderBy(item => random.Next())
+            .ToList();
+    }
 }
