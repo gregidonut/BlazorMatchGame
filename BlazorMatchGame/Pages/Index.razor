@@ -9,7 +9,7 @@
     button {
         width: 100px;
         height: 100px;
-        font-size: 50px;
+        FOnt-size: 50px;
     }
     
 </style>
@@ -19,7 +19,7 @@
         @foreach (var animal in shuffledAnimals)
         {
             <div class="col-3">
-                <button type="button" class="btn btn-outline-dark">
+                <button @onclick="@(() => ButtonClick(animal))" type="button" class="btn btn-outline-dark">
                     <h1>@animal</h1>
                 </button>
             </div>
