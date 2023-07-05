@@ -55,4 +55,31 @@
             .OrderBy(item => random.Next())
             .ToList();
     }
+
+    string lastAnimalFound = string.Empty;
+
+    private void ButtonClick(string animal)
+    {
+        if (lastAnimalFound == string.Empty)
+        {
+            // First selection of the  pair.
+            lastAnimalFound = animal;
+        }
+        else if (lastAnimalFound == animal)
+        {
+            // Match found! Reset for next pair.
+            lastAnimalFound = string.Empty;
+            
+            // Replace found animals with empty string to hide them.
+            shuffledAnimals = shuffledAnimals
+                .Select(a => a.Replace(animal, String.Empty))
+                .ToList();
+        }
+        else
+        {
+            // User selected a part that don't match.
+            // Reset selection.
+            lastAnimalFound = String.Empty;
+        }
+    }
 }
